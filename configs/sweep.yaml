@@ -1,0 +1,34 @@
+program: src/train.py
+method: bayes
+metric:
+  name: val_acc
+  goal: maximize
+parameters:
+  arch:
+    value: reg
+  csv:
+    value: fer2013.csv
+  group:
+    value: reg_sweep
+  name:
+    value: sweep_run
+  augment:
+    value: "true"
+  epochs:
+    value: 40
+  lr:
+    distribution: log_uniform_values
+    min: 0.0001
+    max: 0.01
+  wd:
+    values: [0, 0.0001, 0.001]
+  dropout:
+    values: [0.3, 0.5, 0.6]
+  optimizer:
+    values: [adam, sgd]
+  batch:
+    values: [32, 64]
+  label_smooth:
+    values: [0.0, 0.1]
+  sched:
+    values: [plateau, cosine]
