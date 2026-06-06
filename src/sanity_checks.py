@@ -68,7 +68,7 @@ def check_gradient_flow(model, loader, criterion, device):
 if __name__ == '__main__':
     import argparse
     p = argparse.ArgumentParser()
-    p.add_argument('--csv',  default='fer2013.csv')
+    p.add_argument('--csv',  default='data/icml_face_data.csv')
     p.add_argument('--arch', default='plain',
                    choices=['tiny', 'plain', 'reg', 'resnet'])
     args = p.parse_args()

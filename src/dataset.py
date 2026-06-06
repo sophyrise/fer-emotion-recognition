@@ -42,6 +42,7 @@ def make_loaders(csv_path, batch_size=64, augment=False, num_workers=2):
     import pandas as pd
     from torch.utils.data import DataLoader
     df = pd.read_csv(csv_path)
+    df.columns = df.columns.str.strip()
     tr = df[df['Usage'] == 'Training']
     va = df[df['Usage'] == 'PublicTest']
     te = df[df['Usage'] == 'PrivateTest']

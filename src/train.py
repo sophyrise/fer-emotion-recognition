@@ -46,7 +46,7 @@ def log_prediction_table(model, loader, device, n=32):
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument('--csv',          default='fer2013.csv')
+    p.add_argument('--csv',          default='data/icml_face_data.csv')
     p.add_argument('--arch',         default='reg',
                    choices=['tiny', 'plain', 'reg', 'resnet'])
     p.add_argument('--group',        default='baseline')

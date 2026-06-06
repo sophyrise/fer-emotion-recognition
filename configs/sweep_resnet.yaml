@@ -7,7 +7,7 @@ parameters:
   arch:
     value: resnet
   csv:
-    value: fer2013.csv
+    value: data/icml_face_data.csv
   group:
     value: resnet_sweep
   name:
