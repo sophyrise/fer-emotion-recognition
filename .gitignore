@@ -1,0 +1,8 @@
+﻿*.csv
+*.pth
+*.pt
+wandb/
+__pycache__/
+.ipynb_checkpoints/
+kaggle.json
+.env
