@@ -16,7 +16,7 @@ parameters:
   augment:
     value: "true"
   epochs:
-    value: 40
+    value: 20
   lr:
     distribution: log_uniform_values
     min: 0.0001
