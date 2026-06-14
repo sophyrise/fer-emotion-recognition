@@ -1,4 +1,5 @@
 program: src/train.py
+project: fer2013
 method: bayes
 metric:
   name: val_acc
