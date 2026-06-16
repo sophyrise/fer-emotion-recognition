@@ -58,6 +58,7 @@ def main():
     p.add_argument('--dropout',      type=float,       default=0.5)
     p.add_argument('--label_smooth', type=float,       default=0.0)
     p.add_argument('--augment',      type=_parse_bool, default=False)
+    p.add_argument('--class_weights', type=_parse_bool, default=False)
     p.add_argument('--optimizer',    default='adam',   choices=['adam', 'sgd'])
     p.add_argument('--sched',        default='plateau', choices=['plateau', 'cosine'])
     p.add_argument('--workers',      type=int,         default=2)
@@ -78,7 +79,15 @@ def main():
         args.csv, args.batch, args.augment, args.workers
     )
     model = build(args.arch, p=args.dropout).to(device)
-    criterion = nn.CrossEntropyLoss(label_smoothing=args.label_smooth)
+
+    weight = None
+    if args.class_weights:
+        counts = np.bincount(train_ld.dataset.labels, minlength=len(EMOTIONS))
+        weight = torch.tensor(counts.sum() / (len(EMOTIONS) * counts),
+                              dtype=torch.float32, device=device)
+        print(f"Class weights: {weight.cpu().numpy().round(3)}")
+
+    criterion = nn.CrossEntropyLoss(weight=weight, label_smoothing=args.label_smooth)
 
     if args.optimizer == 'sgd':
         opt = torch.optim.SGD(model.parameters(), lr=args.lr,
