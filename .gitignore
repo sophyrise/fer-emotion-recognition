@@ -1,7 +1,9 @@
 ﻿*.csv
+*.tar.gz
 *.pth
 *.pt
 wandb/
+.idea/
 __pycache__/
 .ipynb_checkpoints/
 kaggle.json
