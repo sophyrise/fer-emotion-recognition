@@ -2,9 +2,12 @@
 
 Kaggle challenge: [Challenges in Representation Learning: FER2013](https://www.kaggle.com/competitions/challenges-in-representation-learning-facial-expression-recognition-challenge/overview)
 
-ემოციების კლასიფიკაცია 7 კატეგორიად, 48×48 ზომის grayscale სახის გამოსახულებებიდან:
+ემოციების კლასიფიკაცია 7 კატეგორიად, 48×48 ზომი
+ს grayscale სახის გამოსახულებებიდან:
 
-## wandb link -> https://wandb.ai/sgurj22-free-university-of-tbilisi-/fer2013/table?nw=nwusersgurj22
+## wandb link -> 
+
+https://wandb.ai/sgurj22-free-university-of-tbilisi-/fer2013/table?nw=nwusersgurj22
 
 ## არქიტექტურები
 
@@ -269,7 +272,7 @@ FER2013 - მკვეთრად დისბალანსია. Disgust-�
 
 RegCNN-ის FC შრეს (`256×6×6 → 512`) აქვს 4.7M პარამეტრი — ქსელის თითქმის მთელი რესურსი იხარჯება სივრცითი პოზიციების
 დამახსოვრებაზე. GAP კი სივრცით ინფორმაციას აჯამებს მნიშვნელობის მიხედვით (თითოეული ნიშან-თვისების რუკის საშუალო
-აქტივაცია) და ამისთვის იყენებს ნულოვან (0) პარამეტრს. სწორედ ამიტომ ახდენს MiniResNet უკეთეს განზოგადებას, მიუხედავად
+აქტივაცია) და ამისთვის იყენებს ნულოვან პარამეტრს. სწორედ ამიტომ ახდენს MiniResNet უკეთეს განზოგადებას, მიუხედავად
 მსგავსი ჯამური პარამეტრების რაოდენობისა.
 
 ---
